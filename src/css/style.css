@@ -30,7 +30,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin: 1rem auto;
+    margin: 1rem 0;
 }
 
 main h1 {
@@ -96,16 +96,28 @@ main h1 {
     }
 }
 
+aside::-webkit-scrollbar {
+    display: none;
+}
+
+aside {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
 aside {
     position: fixed;
     top: 63px;
     right: -100%;
     max-width: 300px;
     width: 550px;
-    min-height: 100vh;
+    height: 100vh;
     padding: 1rem;
     background-color: var(--rose-100);
     transition: right .5s;
+    overflow: scroll;
 
     .cart-container {
         display: flex;
@@ -234,6 +246,7 @@ aside {
         padding-block: 0;
         border-bottom: none;
     }
+
     li {
         display: flex;
         flex-direction: column;
@@ -285,12 +298,14 @@ aside {
 
 .modal-cart-list::-webkit-scrollbar {
     display: none;
-  }
-  
-  .modal-cart-list {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+}
+
+.modal-cart-list {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
 
 .modal-footer {
     display: flex;
@@ -356,7 +371,14 @@ footer {
     text-align: center;
 }
 
-/* .add-cart-btn {
-    background-color: white;
-    border: none;
-} */
+@media only screen and (max-width: 480px) {
+    header div {
+        gap: 0.5rem;
+        h2 {
+            display: none;
+        }
+    }
+    .search-bar {
+        width: 100%;
+    }
+  }
